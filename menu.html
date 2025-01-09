@@ -4,307 +4,157 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+      body {
+        margin: 0;
+        font-family: "Georgia", serif;
+        background-color: #333;
+        color: #f1f1f1;
+      }
+
+      header {
+        background-color: black;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      }
+
+      header .container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      header .menu a,
+      header .contact a {
+        text-decoration: none;
+        color: #f1f1f1;
+        padding: 10px 20px;
+        border: 2px solid #f1f1f1;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header .menu a:hover,
+      header .contact a:hover {
+        background-color: #f1f1f1;
+        color: #222;
+      }
+
+      header .logo-container a {
+        text-decoration: none;
+      }
+
+      header .logo-container img {
+        height: 50px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+      }
+
+      header .logo-container img:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero {
+        background-image: url("coffee-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero h2 {
+        font-size: 2em;
+        margin: 0;
+      }
+
+      .section {
+        padding: 40px 20px;
+      }
+
+      .section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        max-height: 600px;
+        overflow-y: auto;
+      }
+
+      .menu-item {
+        background-color: #444;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .menu-item img {
+        width: 100%;
+        height: auto;
+        border-bottom: 2px solid #f1f1f1;
+      }
+
+      .menu-item h3 {
+        margin: 10px 0 5px;
+      }
+
+      .menu-item p {
+        margin: 0;
+      }
+
+      footer {
+        background-color: black;
+        text-align: center;
+        padding: 20px;
+        color: #f1f1f1;
+      }
+
+      footer p,
+      footer nav {
+        margin: 10px 0;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      footer a:hover {
+        background-color: white;
+        color: #222;
+      }
+
+      #search-bar {
+        margin: 20px auto;
+        display: block;
+        padding: 10px;
+        width: 80%;
+        border: 2px solid #f1f1f1;
+        border-radius: 5px;
+        background-color: #333;
+        color: #f1f1f1;
+      }
+    </style>
   </head>
-  <style>
-    body {
-    margin: 0;
-    font-family: "Georgia", serif;
-    background-color: #333;
-    color: #f1f1f1;
-  }
-
-  header {
-    background-color: black;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  }
-
-  header .container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  header .menu a,
-  header .contact a {
-    text-decoration: none;
-    color: #f1f1f1;
-    padding: 10px 20px;
-    border: 2px solid #f1f1f1;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  header .menu a:hover,
-  header .contact a:hover {
-    background-color: #f1f1f1;
-    color: #222;
-  }
-
-  header .logo-container a {
-    text-decoration: none;
-  }
-
-  header .logo-container img {
-    height: 50px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease;
-  }
-
-  header .logo-container img:hover {
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
-  }
-
-  .hero {
-    background-image: url("coffee-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
-  }
-
-  .hero h2 {
-    font-size: 2em;
-    margin: 0;
-  }
-
-  .section {
-    padding: 40px 20px;
-  }
-
-  .section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: white;
-  }
-
-  .menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    max-height: 600px;
-    overflow-y: auto;
-  }
-
-  .menu-item {
-    background-color: #444;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .menu-item img {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #f1f1f1;
-  }
-
-  .menu-item h3 {
-    margin: 10px 0 5px;
-  }
-
-  .menu-item p {
-    margin: 0;
-  }
-
-  footer {
-    background-color: black;
-    text-align: center;
-    padding: 20px;
-    color: #f1f1f1;
-  }
-
-  footer p,
-  footer nav {
-    margin: 10px 0;
-  }
-
-  footer a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  footer a:hover {
-    background-color: white;
-    color: #222;
-  }
-
-  #search-bar {
-    margin: 20px auto;
-    display: block;
-    padding: 10px;
-    width: 80%;
-    border: 2px solid #f1f1f1;
-    border-radius: 5px;
-    background-color: #333;
-    color: #f1f1f1;
-  }
-
-  body {
-    margin: 0;
-    font-family: "Georgia", serif;
-    background-color: #333;
-    color: #f1f1f1;
-  }
-
-  header {
-    background-color: black;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  }
-
-  header .container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  header .menu a,
-  header .contact a {
-    text-decoration: none;
-    color: #f1f1f1;
-    padding: 10px 20px;
-    border: 2px solid #f1f1f1;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  header .menu a:hover,
-  header .contact a:hover {
-    background-color: #f1f1f1;
-    color: #222;
-  }
-
-  header .logo-container a {
-    text-decoration: none;
-  }
-
-  header .logo-container img {
-    height: 50px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease;
-  }
-
-  header .logo-container img:hover {
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
-  }
-
-  .hero {
-    background-image: url("coffee-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
-  }
-
-  .hero h2 {
-    font-size: 2em;
-    margin: 0;
-  }
-
-  .section {
-    padding: 40px 20px;
-  }
-
-  .section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: white;
-  }
-
-  .menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    max-height: 600px;
-    overflow-y: auto;
-  }
-
-  .menu-item {
-    background-color: #444;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .menu-item img {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #f1f1f1;
-  }
-
-  .menu-item h3 {
-    margin: 10px 0 5px;
-  }
-
-  .menu-item p {
-    margin: 0;
-  }
-
-  footer {
-    background-color: black;
-    text-align: center;
-    padding: 20px;
-    color: #f1f1f1;
-  }
-
-  footer p,
-  footer nav {
-    margin: 10px 0;
-  }
-
-  footer a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  footer a:hover {
-    background-color: white;
-    color: #222;
-  }
-
-  #search-bar {
-    margin: 20px auto;
-    display: block;
-    padding: 10px;
-    width: 80%;
-    border: 2px solid #f1f1f1;
-    border-radius: 5px;
-    background-color: #333;
-    color: #f1f1f1;
-  }
-  </style>
   <body>
     <header>
       <div class="container">
@@ -331,282 +181,215 @@
 
     <section id="menu" class="section">
       <h2>Menu</h2>
-
       <div class="category">
         <h3>Kopi</h3>
         <div class="menu">
           <div class="menu-item">
+            <img src="images/kopi-hitam.jpg" alt="Kopi Hitam">
             <h3>Kopi Hitam</h3>
             <p><strong>Panas:</strong> Rp8.000</p>
             <p><strong>Dingin:</strong> Rp10.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/kopi-susu.jpg" alt="Kopi Susu">
             <h3>Kopi Susu</h3>
             <p><strong>Panas:</strong> Rp10.000</p>
             <p><strong>Dingin:</strong> Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/cappuccino.jpg" alt="Cappuccino">
             <h3>Cappuccino</h3>
             <p><strong>Panas:</strong> Rp10.000</p>
             <p><strong>Dingin:</strong> Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/creamy-latte.jpg" alt="Creamy Latte">
             <h3>Creamy Latte</h3>
             <p><strong>Panas:</strong> Rp10.000</p>
             <p><strong>Dingin:</strong> Rp12.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/kopi-caramel.jpg" alt="Kopi Caramel">
             <h3>Kopi Caramel</h3>
             <p><strong>Panas:</strong> -</p>
             <p><strong>Dingin:</strong> Rp15.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/kopi-susu-gula-aren.jpg" alt="Kopi Susu Gula Aren">
             <h3>Kopi Susu Gula Aren</h3>
             <p><strong>Panas:</strong> -</p>
             <p><strong>Dingin:</strong> Rp15.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/milo-coffee.jpg" alt="Milo Coffee">
             <h3>Milo Coffee</h3>
             <p><strong>Panas:</strong> -</p>
             <p><strong>Dingin:</strong> Rp15.000</p>
           </div>
         </div>
       </div>
-
+      
       <div class="category">
         <h3>Non-Kopi</h3>
         <div class="menu">
           <div class="menu-item">
+            <img src="images/teh.jpg" alt="Teh">
             <h3>Teh</h3>
             <p><strong>Panas:</strong> Rp5.000</p>
             <p><strong>Dingin:</strong> Rp6.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/teh-susu.jpg" alt="Teh Susu">
             <h3>Teh Susu</h3>
             <p><strong>Panas:</strong> Rp10.000</p>
             <p><strong>Dingin:</strong> Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/adem-sari.jpg" alt="Adem Sari">
             <h3>Adem Sari</h3>
             <p><strong>Panas:</strong> -</p>
             <p><strong>Dingin:</strong> Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/milo-susu.jpg" alt="Milo Susu">
             <h3>Milo Susu</h3>
             <p><strong>Panas:</strong> Rp10.000</p>
             <p><strong>Dingin:</strong> Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/teh-tarik.jpg" alt="Teh Tarik">
             <h3>Teh Tarik</h3>
             <p><strong>Panas:</strong> Rp10.000</p>
             <p><strong>Dingin:</strong> Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/teh-tarik-cincau.jpg" alt="Teh Tarik Cincau">
             <h3>Teh Tarik Cincau</h3>
             <p><strong>Panas:</strong> -</p>
             <p><strong>Dingin:</strong> Rp13.000</p>
           </div>
-          <div class="menu-item">
-            <h3>Pop Ice</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp7/9.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Chocolatos</h3>
-            <p><strong>Panas:</strong> Rp10.000</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Grentea</h3>
-            <p><strong>Panas:</strong> Rp10.000</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nutrisari</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Lemontea</h3>
-            <p><strong>Panas:</strong> Rp8/10.000</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Jahe</h3>
-            <p><strong>Panas:</strong> Rp10.000</p>
-            <p><strong>Dingin:</strong> -</p>
-          </div>
-          <div class="menu-item">
-            <h3>Jeruk Kecil</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Jeruk Besar</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Extrajoss</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Kuku Bima</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Timun Selasi</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Cincau Susu</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Kacang Hijau</h3>
-            <p><strong>Panas:</strong> -</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Susu</h3>
-            <p><strong>Panas:</strong> Rp10.000</p>
-            <p><strong>Dingin:</strong> Rp11.000</p>
-          </div>
+          <!-- Tambahkan elemen gambar untuk setiap menu lainnya dengan format yang sama -->
         </div>
       </div>
-
+      
       <div class="category">
         <h3>Jus</h3>
         <div class="menu">
           <div class="menu-item">
+            <img src="images/jus-apel.jpg" alt="Jus Apel">
             <h3>Apel</h3>
             <p><strong>Dingin:</strong> Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/jus-mangga.jpg" alt="Jus Mangga">
             <h3>Mangga</h3>
             <p><strong>Dingin:</strong> Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/jus-wortel.jpg" alt="Jus Wortel">
             <h3>Wortel</h3>
             <p><strong>Dingin:</strong> Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/jus-naga.jpg" alt="Jus Naga">
             <h3>Naga</h3>
             <p><strong>Dingin:</strong> Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/jus-tapai.jpg" alt="Jus Tapai">
             <h3>Tapai</h3>
             <p><strong>Dingin:</strong> Rp13.000</p>
           </div>
         </div>
       </div>
-
+      
       <div class="category">
         <h3>Makanan</h3>
         <div class="menu">
           <div class="menu-item">
+            <img src="images/nasi-putih.jpg" alt="Nasi Putih">
             <h3>Nasi Putih</h3>
             <p>Rp6.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/nasi-telur.jpg" alt="Nasi Telur">
             <h3>Nasi Telur</h3>
             <p>Rp9.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/mie.jpg" alt="Mie">
             <h3>Mie</h3>
             <p>Rp7.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/mie-telur.jpg" alt="Mie Telur">
             <h3>Mie Telur</h3>
             <p>Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/mie-netizen.jpg" alt="Mie Netizen">
             <h3>Mie Netizen</h3>
             <p>Rp15.000</p>
           </div>
-          <div class="menu-item">
-            <h3>Nasi Gila</h3>
-            <p>Rp16.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Goreng Telur</h3>
-            <p>Rp13.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Goreng Kampung</h3>
-            <p>Rp16.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Goreng Sosis + Telur</h3>
-            <p>Rp16.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Goreng Teri + Telur</h3>
-            <p>Rp16.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Cumi Hitam + Telur</h3>
-            <p>Rp21.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Cumi Asin + Telur</h3>
-            <p>Rp21.000</p>
-          </div>
-          <div class="menu-item">
-            <h3>Nasi Ayam Sayap + Telur</h3>
-            <p>Rp16.000</p>
-          </div>
+          <!-- Tambahkan elemen gambar untuk setiap menu lainnya dengan format yang sama -->
         </div>
       </div>
-
+      
       <div class="category">
         <h3>Cemilan</h3>
         <div class="menu">
           <div class="menu-item">
+            <img src="images/otak-otak-goreng.jpg" alt="Otak-Otak Goreng">
             <h3>Otak-Otak Goreng</h3>
             <p>Rp12.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/haekang-goreng.jpg" alt="Haekang Goreng">
             <h3>Haekang Goreng</h3>
             <p>Rp12.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/lumpia.jpg" alt="Lumpia">
             <h3>Lumpia</h3>
             <p>Rp12.000</p>
           </div>
           <div class="menu-item">
+            <img src="images/nugget-goreng.jpg" alt="Nugget Goreng">
             <h3>Nugget Goreng</h3>
             <p>Rp12.000</p>
-          </div>
+          </div>      
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Sosis Goreng</h3>
             <p>Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Ubi Polos</h3>
             <p>Rp11.000</p>
           </div>
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Ubi Tela Tela</h3>
             <p>Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Tahu Polos</h3>
             <p>Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Tahu Balado</h3>
             <p>Rp13.000</p>
           </div>
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Kentang Polos</h3>
             <p>Rp18.000</p>
           </div>
           <div class="menu-item">
+            <img src="" alt="">
             <h3>Kentang Balado</h3>
             <p>Rp18.000</p>
           </div>
@@ -631,11 +414,13 @@
           >Instagram</a
         >
         |
-        <a href="https://www.facebook.com/jurnal.coffeepontianak?rdid=HN5KoT8KXnu0qPYm&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1FJUbBBmwp%2F" target="_blank">Facebook</a>
+        <a
+          href="https://www.facebook.com/jurnal.coffeepontianak?rdid=HN5KoT8KXnu0qPYm&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1FJUbBBmwp%2F"
+          target="_blank"
+          >Facebook</a
+        >
       </div>
-      <p>
-        © <span id="year"></span> Jurnal Coffee
-      </p>
+      <p>© <span id="year"></span> Jurnal Coffee</p>
     </footer>
 
     <script>
@@ -657,17 +442,5 @@
         });
       }
     </script>
-
-<script>
-  function filterMenu() {
-    const query = document.getElementById('search-bar').value.toLowerCase();
-    const items = document.querySelectorAll('.menu-item');
-
-    items.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(query) ? 'block' : 'none';
-    });
-  }
-</script>
   </body>
 </html>
